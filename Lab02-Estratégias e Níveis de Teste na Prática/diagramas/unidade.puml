@@ -1,0 +1,21 @@
+@startuml unidade
+
+class Carrinho {
+    - itens: List<Item>
+    + adicionarItem(item: Item)
+    + calcularTotal(): double
+}
+
+class Item {
+    - preco: double
+    - quantidade: int
+}
+
+class CarrinhoTest {
+    + deveCalcularTotal()
+}
+
+CarrinhoTest ..> Carrinho : testa
+Carrinho --> Item : utiliza
+
+@enduml

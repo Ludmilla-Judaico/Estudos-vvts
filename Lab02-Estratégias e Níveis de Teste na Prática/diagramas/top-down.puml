@@ -1,0 +1,7 @@
+@startuml unidade
+
+class Carrinho {
+    + calcularTotal(): double
+}
+
+@enduml
