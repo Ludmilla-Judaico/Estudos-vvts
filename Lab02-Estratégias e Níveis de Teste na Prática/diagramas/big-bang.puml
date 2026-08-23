@@ -1,0 +1,30 @@
+@startuml big-bang
+
+actor Cliente
+entity Item
+entity Carrinho
+entity Pedido
+entity Pagamento
+entity Estoque
+entity Entrega
+
+Cliente -> Item : Seleciona item
+    activate Cliente
+Cliente -> Carrinho : Adiciona item selecionado ao carrinho
+Cliente -> Pedido : Finaliza pedido
+    activate Pedido
+
+Pedido -> Pagamento : processar_pagamento(): bool
+    activate Pagamento
+Pagamento --> Pedido : true
+
+Pedido -> Estoque : atualizar_estoque(): bool
+    activate Estoque
+Estoque --> Pedido : true
+
+Pedido -> Entrega : solicitar_entrega(): bool
+    activate Entrega
+Entrega --> Pedido : true
+
+Pedido --> Cliente : Pedido confirmado
+@enduml
