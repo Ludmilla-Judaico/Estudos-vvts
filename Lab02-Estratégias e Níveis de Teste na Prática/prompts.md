@@ -1,0 +1,2 @@
+# Prompts utilizados para a execução da atividade
+- "Me dê a ideia inicial do teste 'teste' utilizando a estratégia 'estrategia', atuando como um arquiteto de software e engenheiro de testes sênior. Explique o comportamento, a funcionalidade e os benefícios dessa estratégia"
