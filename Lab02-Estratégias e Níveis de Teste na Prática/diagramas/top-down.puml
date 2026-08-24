@@ -1,7 +1,56 @@
-@startuml unidade
+@startuml top-down
 
-class Carrinho {
-    + calcularTotal(): double
+class Pedido {
+    - itens: ArrayList
+    - estoque: IEstoque
+    - entrega: IEntrega
+    - pagamento: IPagamento
+
+    + criarPedido(estoque: IEstoque, pagamento: IPagamento, entrega: IEntrega)
+
 }
+
+class PagamentoStub {
+    - resposta: boolean
+
+    + efetuar_pagamento(valor: double) : boolean
+    + recusar_pagamento(): void
+}
+
+class EstoqueStub {
+    - resposta: boolean
+
+    + confirmar_estoque(itens: ArrayList) : boolean
+    + estoque_insuficiente() : void
+}
+
+class EntregaStub {
+    - resposta: boolean
+
+    + confirmar_entrega(endereco: string): boolean
+    - negar_entrega(): void
+}
+
+
+interface IPagamento {
+    + efetuar_pagamento(valor: double) : boolean
+}
+
+interface IEstoque {
+    + confirmar_estoque(itens: ArrayList) : boolean
+}
+
+interface IEntrega {
+    + confirmar_entrega(endereco: string): boolean
+}
+
+Pedido -> IPagamento : utiliza
+PagamentoStub ..|> IPagamento : implementa
+
+Pedido -> IEstoque : utiliza
+EstoqueStub ..|> IEstoque : implementa
+
+Pedido -> IEntrega : utiliza
+EntregaStub ..|> IEntrega : implementa
 
 @enduml
