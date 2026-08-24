@@ -1,0 +1,41 @@
+@startuml bottom-up
+
+class Pagamento {
+    + processar_pagamento(valor: double) : boolean
+}
+
+class Estoque {
+    + checar_estoque(itens: ArrayList) : boolean
+}
+
+class Entrega {
+    + calcular_frete(endereco: string): boolean
+}
+
+interface IPagamento {
+    + processar_pagamento(valor: double) : boolean
+}
+
+interface IEstoque {
+    + checar_estoque(itens: ArrayList) : boolean
+}
+
+interface IEntrega {
+    + calcular_frete(endereco: string): boolean
+}
+
+class PedidoDriver {
+    + testarPagamento(valor: double): boolean
+    + testarEstoque(itens: ArrayList): boolean
+    + testarEntrega(endereco: string): boolean
+}
+
+Pagamento ..|> IPagamento : implementa
+Estoque ..|> IEstoque : implementa
+Entrega ..|> IEntrega : implementa
+
+PedidoDriver --> IPagamento : utiliza
+PedidoDriver --> IEstoque : utiliza
+PedidoDriver --> IEntrega : utiliza
+
+@enduml
