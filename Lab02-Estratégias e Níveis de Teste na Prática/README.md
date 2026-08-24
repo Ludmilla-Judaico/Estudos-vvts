@@ -20,7 +20,12 @@ Caso: Finalizar um pedido
 - Neste cenário, os componentes Estoque, Entrega e Pagamento são considerados disponíveis, enquanto o componente pedido não. É utilizado um drive para simular o comportamento do componente Pedido, assim permitindo que os outros componentes sejam testados mesmo que Pedido ainda não tenha sido implementado
 
 ### 2.4. [Teste de Fumaça (Smoke Testing)](./diagramas/smoke.puml) 
+Caso: Finalizar um pedido após receber nova versão do sistema
+- Neste cenário, após receber uma nova versão do sistema, é executado o processo de finalizar um pedido de forma a verificar se os componentes continuam funciando minimamente da maneira esperada. O teste representa o fluxo normal de finalizar um pedido
+
 ### 2.5. [Teste de Regressão](./diagramas/regressao.puml)
+Caso: A equipe altera o processo de finalização do pedido para permitir o pagamento via PIX 
+- Neste cenário, após uma mudança no componente de pagamento, uma bateria de testes é feita nos componentes relacionados a criação e finalização de pedidos para garantir que a nova funcionalidade não quebrou ou interferiu nas funcionalidades já existentes
     
 ## 3. Teste de Validação (Validation Testing)
 ### 3.1. [Critérios de Aceitação (User Acceptance Testing)](./diagramas/aceitacao.puml) 
