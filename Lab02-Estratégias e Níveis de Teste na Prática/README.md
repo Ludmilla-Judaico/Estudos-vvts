@@ -1,4 +1,5 @@
 # Diagramas e suas utilizações
+Cenário: Plataforma de E-commerce e Marketplace de grande porte
 ## 1. Teste de Unidade (Unit Testing)
 ### 1.1. [Teste de unidade](./diagramas/unidade.puml)
 Caso: Calcular o total do carrinho
@@ -6,11 +7,18 @@ Caso: Calcular o total do carrinho
 
 ## 2. Teste de Integração (Integration Testing)
 ### 2.1. [Integração Não Incremental (Big Bang)](./diagramas/big-bang.puml)
-Caso: Fazer uma compra
+Caso: Finalizar um pedido
 - Neste cenário, todos os componentes envolvidos no processo de compra (Carrinho, Pedido, Pagamento, Estoque e Entrega) são considerados disponíveis e integrados simultaneamente. O teste verifica o fluxo completo após a integração de todos os componentes.
 
 ### 2.2. [Integração Incremental Top-Down (Descendente) com uso de Stubs](./diagramas/top-down.puml) 
+Caso: Finalizar um pedido
+- Neste cenário, apenas o componente Pedido (topo da hierarquia) é considerado disponível e utiliza Stubs para testar seu funcionamento (PagamentoStub, EntregaStub e EstoqueStub).
+- Interfaces são utilizadas para permitir que o componente Pedido aceite diferentes implementações dos outros componentes
+
 ### 2.3. [Integração Incremental Bottom-Up (Ascendente) com uso de Drivers](./diagramas/bottom-up.puml) 
+Caso: Finalizar um pedido
+- Neste cenário, os componentes Estoque, Entrega e Pagamento são considerados disponíveis, enquanto o componente pedido não. É utilizado um drive para simular o comportamento do componente Pedido, assim permitindo que os outros componentes sejam testados mesmo que Pedido ainda não tenha sido implementado
+
 ### 2.4. [Teste de Fumaça (Smoke Testing)](./diagramas/smoke.puml) 
 ### 2.5. [Teste de Regressão](./diagramas/regressao.puml)
     
