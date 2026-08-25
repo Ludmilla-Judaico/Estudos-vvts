@@ -1,0 +1,34 @@
+@startuml regression
+
+component "Carrinho" as Carrinho
+component "Pedido" as Pedido
+component "Pagamento\n[NOVA VERSÃO]" as Pagamento
+component "Estoque" as Estoque
+component "Entrega" as Entrega
+
+component "Suíte de Testes\n de Regressão" as Suite
+
+component "Teste\nCarrinho" as TC
+component "Teste\nPedido" as TP
+component "Teste\nPagamento" as TPag
+component "Teste\nEstoque" as TE
+component "Teste\nEntrega" as TEnt
+
+Carrinho --> Pedido
+Pedido --> Pagamento
+Pedido --> Estoque
+Pedido --> Entrega
+
+Suite --> TC
+Suite --> TP
+Suite --> TPag
+Suite --> TE
+Suite --> TEnt
+
+TC ..> Carrinho : verifica
+TP ..> Pedido : verifica
+TPag ..> Pagamento : verifica
+TE ..> Estoque : verifica
+TEnt ..> Entrega : verifica
+
+@enduml
