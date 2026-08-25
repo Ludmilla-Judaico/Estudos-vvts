@@ -1,0 +1,21 @@
+@startuml acceptance
+
+start
+
+:Cliente adiciona produto ao carrinho;
+:Sistema calcula o total;
+:Cliente escolhe forma de pagamento;
+:Cliente confirma compra;
+
+if (Pagamento aprovado?) then (sim)
+    :Criar pedido;
+    :Atualizar estoque;
+    :Confirmar pedido;
+else (não)
+    :Informar pagamento recusado;
+    :Pedido não confirmado;
+endif
+
+stop
+
+@enduml
