@@ -1,0 +1,31 @@
+@startuml smoke
+
+actor Cliente
+
+participant Produto
+participant Carrinho
+participant Pedido
+participant Pagamento
+participant Estoque
+participant Entrega
+
+Cliente -> Produto : selecionarProduto()
+Produto --> Cliente : produto
+
+Cliente -> Carrinho : adicionarItem()
+Carrinho --> Cliente : item adicionado
+
+Cliente -> Pedido : finalizarPedido()
+
+Pedido -> Pagamento : processarPagamento()
+Pagamento --> Pedido : true
+
+Pedido -> Estoque : atualizarEstoque()
+Estoque --> Pedido : true
+
+Pedido -> Entrega : solicitarEntrega()
+Entrega --> Pedido : true
+
+Pedido --> Cliente : pedido confirmado
+
+@enduml
