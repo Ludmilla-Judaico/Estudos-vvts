@@ -1,0 +1,24 @@
+@startuml alpha
+
+start
+
+:Disponibilizar versão Alpha;
+:Usuário interno acessa o sistema;
+
+:Pesquisar produto;
+:Adicionar produto ao carrinho;
+:Finalizar pedido;
+
+if (Usuário encontra problema?) then (sim)
+    :Registrar problema/feedback;
+    :Equipe analisa feedback;
+    :Corrigir problema;
+else (não)
+    :Registrar resultado positivo;
+endif
+
+:Repetir testes com nova versão;
+
+stop
+
+@enduml
