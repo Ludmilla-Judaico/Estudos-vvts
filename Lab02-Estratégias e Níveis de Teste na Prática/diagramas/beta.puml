@@ -1,0 +1,30 @@
+@startuml beta
+
+start
+
+:Disponibilizar versão Beta;
+:Usuário externo acessa o sistema;
+
+:Realizar operações reais;
+:Realizar compra;
+:Utilizar funcionalidades;
+
+if (Usuário encontra problema?) then (sim)
+    :Registrar problema ou feedback;
+    :Equipe analisa feedback;
+    :Corrigir problema;
+else (não)
+    :Registrar experiência positiva;
+endif
+
+:Analisar resultados do Beta;
+
+if (Sistema está pronto para lançamento?) then (sim)
+    :Liberar versão oficialmente;
+else (não)
+    :Realizar ajustes e novo ciclo de testes;
+endif
+
+stop
+
+@enduml
