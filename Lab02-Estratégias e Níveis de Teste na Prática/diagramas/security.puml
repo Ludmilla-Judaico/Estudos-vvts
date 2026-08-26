@@ -1,0 +1,20 @@
+@startuml security
+
+actor Cliente
+
+component "API" as API
+component "Autenticação" as Auth
+component "Autorização" as Authorization
+component "Serviço de Pedidos" as Pedido
+database "Banco de Dados" as DB
+
+Cliente --> API : solicitar pedido
+API --> Auth : autenticar()
+Auth --> Authorization : verificarPermissao()
+
+Authorization --> Pedido : acesso permitido
+Pedido --> DB : consultar pedido
+
+Authorization ..> Cliente : acesso negado\nse não autorizado
+
+@enduml
