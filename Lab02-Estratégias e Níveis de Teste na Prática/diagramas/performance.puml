@@ -1,0 +1,25 @@
+@startuml performance
+
+start
+
+:Iniciar ambiente de teste;
+
+:Simular carga esperada;
+:Executar fluxo de finalização de pedido;
+
+:Medir tempo de resposta;
+:Medir taxa de erros;
+:Medir throughput; 
+' throughput quantidade de requisições processadas
+
+if (Desempenho atende aos requisitos?) then (sim)
+    :Registrar teste aprovado;
+else (não)
+    :Identificar gargalos;
+    :Otimizar sistema;
+    :Executar novo teste;
+endif
+
+stop
+
+@enduml
