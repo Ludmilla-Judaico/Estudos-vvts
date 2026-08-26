@@ -1,0 +1,26 @@
+@startuml stress
+
+start
+
+:Iniciar sistema;
+:Aplicar carga inicial;
+
+:Aumentar número de usuários simultâneos;
+
+if (Sistema suporta a carga?) then (sim)
+    :Registrar desempenho;
+    :Aumentar carga;
+else (não)
+    :Registrar ponto de saturação;
+    :Reduzir carga;
+    
+    if (Sistema se recupera?) then (sim)
+        :Registrar recuperação;
+    else (não)
+        :Registrar falha;
+    endif
+endif
+
+stop
+
+@enduml
