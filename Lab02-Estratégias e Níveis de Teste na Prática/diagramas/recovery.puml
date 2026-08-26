@@ -1,0 +1,26 @@
+@startuml recovery
+
+start
+
+:Cliente finaliza pedido;
+:Processar pagamento;
+
+:Pagamento aprovado;
+
+:System Failure;
+
+:Reiniciar sistema;
+:Recuperar dados da transação;
+
+if (Estado consistente?) then (sim)
+    :Atualizar estoque;
+    :Solicitar entrega;
+    :Confirmar pedido;
+else (não)
+    :Reverter transação;
+    :Registrar erro;
+endif
+
+stop
+
+@enduml
